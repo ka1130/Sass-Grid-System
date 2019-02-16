@@ -1,0 +1,26 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/typography";
+
+@import "layout/grid";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* box sizing prop is not inherited so we put it on body 
+  and force inheritance with universal selector*/
+}
+
+html {
+  /* This defines what 1 rem is so it belongs to base */
+  font-size: 62.5%;
+  /* we want 10px, the default is 16px, so 100/16 = 0.625 => *100 => 62,5% */
+}
+
+body {
+  box-sizing: border-box;
+}

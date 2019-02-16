@@ -1,0 +1,53 @@
+.row {
+  @include clearfix;
+  max-width: $grid-width;
+  /* 1140px is one of the standards , when there's enought space; 
+  if not, the width will simply be 100% */
+  background-color: #eee;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  [class^="col-"] {
+    background-color: orangered;
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+    // interpolation is needed here
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      ((100% - 2 * #{$gutter-horizontal}) / 3) * 2 + #{$gutter-horizontal}
+    );
+    // .col-1-of-2 + .col-1-of-2 + gutter (as seen on design)
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      ((100% - 3 * #{$gutter-horizontal}) / 4) * 2 + #{$gutter-horizontal}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      (((100% - 3 * #{$gutter-horizontal}) / 4) * 2 + #{$gutter-horizontal}) +
+        (((100% - 3 * #{$gutter-horizontal}) / 4)) + #{$gutter-horizontal}
+    );
+  }
+}
